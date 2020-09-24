@@ -1,0 +1,36 @@
+@import src/styles/_vars.sass
+    
+.filter-btn
+    position: relative
+    outline: none
+    background: var(--background-color)
+    color: var(--foreground-color)
+    padding: 12px 24px
+    border: 1px solid #88888833
+    font-size: 1em
+    cursor: pointer
+    transition: all 0.3s ease
+
+    &:hover
+        background: var(--faded-color)
+
+    .filter-icon
+        margin-right: 5px
+
+    .btn-text
+        @media screen and ( max-width: $tablet )
+            display: none
+
+    .filter-count
+        position: absolute
+        top: -10px
+        right: -10px
+        padding: 5px
+        box-sizing: border-box
+        font-size: 15px
+        background: var(--secondary-color-two)
+        color: var(--foreground-color)
+        border-radius: 50%
+        width: 30px
+        height: 30px
+        box-shadow: 0 3px 5px rgba(0,0,0,0.4)

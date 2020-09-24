@@ -1,0 +1,8 @@
+{
+    "tokenStorageKey": "template-auth-token",
+    "refreshTokenStorageKey": "template-refresh-token",
+    "apiUrl": "http://localhost:6300",
+    "trendingSnipSize": 25,
+    "randomSnipSize": 25,
+    "recentUploadsSnipSize": 25
+}

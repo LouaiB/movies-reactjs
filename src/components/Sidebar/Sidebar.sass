@@ -1,0 +1,58 @@
+.sidebar
+    position: fixed
+    z-index: 10
+    top: 0
+    bottom: 0
+    left: 0
+    height: 100%
+    min-width: 200px
+    padding: 60px 0
+    background: var(--background-color)
+    color: var(--foreground-color)
+    display: flex
+    flex-direction: column
+    overflow-x: hidden
+    transition: all 0.4s
+    transform: translateX(-500px)
+
+    .section-title
+        color: var(--faded-color)
+        padding: 10px 25px
+        font-size: 1em
+        letter-spacing: var(--title-letter-spacing)
+
+    hr
+        width: 100%
+        border-color: #88888833
+
+    .link
+        color: var(--foreground-color)
+        padding: 15px 25px
+        padding-right: 30px
+        text-decoration: none
+        display: flex
+        flex-direction: row
+        align-items: center
+        transition: all 0.2s
+
+        &:hover
+            background: var(--faded-color)
+
+        .icon
+            font-size: 1.2em
+
+        span
+            margin-left: 30px
+            font-size: 1em
+            font-weight: 400
+
+.sidebar-open
+    transform: translateX(0px)
+
+.sidebar-closed
+    transform: translateX(-500px)
+
+.active-sidebar-link
+    color: var(--primary-color) !important
+
+    

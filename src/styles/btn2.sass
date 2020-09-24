@@ -1,0 +1,38 @@
+.btn
+    margin: 10px
+    outline: none
+    border: 0
+    border-radius: var(--border-radius)
+    background: var(--header-color)
+    box-shadow: 0 0 2px var(--header-color)
+    color: var(--foreground-color)
+    padding: 10px 20px
+    cursor: pointer
+    transition: all 0.2s
+
+    &:not(.active):enabled:hover
+        background: var(--section-color)
+        box-shadow: 0 0 2px var(--section-color)
+
+    &:disabled
+        cursor: initial
+        background: var(--section-color)
+        box-shadow: 0 0 2px var(--section-color)
+        color: var(--faded-color)
+
+.btn-sm
+    padding: 5px 10px
+    font-size: 0.8em
+.btn-md
+    padding: 7px 14px
+    font-size: 0.9em
+.btn-lg
+    padding: 12px 24px
+    font-size: 1.1em
+
+.active
+    background: var(--primary-color)
+    box-shadow: 0 0 2px var(--primary-color)
+
+    &:hover
+        filter: brightness(1.1)

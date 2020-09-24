@@ -1,0 +1,82 @@
+@import src/styles/_vars.sass
+    
+.header
+    position: fixed
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    z-index: 20
+    width: 100%
+    background: var(--header-color)
+    color: var(--foreground-color)
+    padding: 10px 15px
+    box-sizing: border-box
+    opacity: 0.9
+    transition: all 0.3s ease
+
+    .left
+        position: relative
+        display: flex
+        flex-direction: row
+        align-items: center
+
+        .hamburger
+            cursor: pointer
+            transition: all 0.2s ease
+            padding: 10px
+            border-radius: 50%
+
+            &:hover
+                background: var(--faded-color)
+
+
+        .sitename
+            padding: 7px 20px
+            margin-left: 10px
+            cursor: pointer
+            border-radius: var(--border-radius)
+            transition: all 0.2s ease
+
+            &:hover
+                background: var(--faded-color)
+
+            span
+                height: 40px
+                width: 40px
+
+    #global-search
+
+        @media screen and ( max-width: $tablet )
+            display: none
+
+    .nav
+        position: relative
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+
+        .link
+            text-decoration: none
+            color: var(--foreground-color)
+            margin: 0 10px
+            padding: 5px 10px
+            border-radius: var(--border-radius)
+            transition: all 0.3s ease
+
+            &:hover
+                background: var(--faded-color)
+
+            .nav-icon
+
+            .nav-text
+                margin-left: 5px
+                font-size: 0.9em
+
+                @media screen and ( max-width: $pc )
+                    display: none
+                    
+
+.header-transparent
+    background: transparent

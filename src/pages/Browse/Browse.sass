@@ -1,0 +1,54 @@
+@import src/styles/_vars.sass
+    
+.browse-page
+    padding-top: 120px
+    background-color: var(--background-color)
+    color: var(--foreground-color)
+
+    .cards
+        border-bottom: solid 1px #88888855
+
+    .tags-section
+        padding: 60px 20px
+        background: var(--background-color)
+
+        .heading
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+
+            .left
+                position: relative
+                display: flex
+                flex-direction: column
+                font-size: 1.6em
+                font-weight: bold
+                letter-spacing: var(--title-letter-spacing)
+
+                &::before
+                    position: absolute
+                    left: 0
+                    top: -15px
+                    content: ''
+                    height: 5px
+                    width: 50px
+                    border-radius: 8px
+                    background: var(--foreground-color)
+
+            .right
+                color: var(--faded-color)
+                max-width: 250px
+
+        .tags
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            align-items: center
+            justify-content: center
+
+            >*
+                margin-top: 20px
+                margin-right: 20px
+
+                @media screen and ( max-width: $tablet )
+                    margin-right: 0

@@ -1,0 +1,36 @@
+.simple-pagination
+
+    .head
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        padding: 10px 0
+
+        .info
+            display: flex
+            flex-direction: column
+
+            .title
+                color: var(--foreground-color)
+                font-size: 1.7em
+                font-weight: normal
+            
+            .subtitle
+                color: var(--faded-color)
+                font-size: 1em
+
+        .controls
+
+    .items-wrapper
+        overflow: hidden
+
+        .items
+            white-space: nowrap
+            transition: all 0.3s ease 0s
+
+            >*
+                margin-right: 5px
+                margin-bottom: 5px
+                display: inline-block
+                box-shadow: 2px 2px 4px rgba(0,0,0,0.4)

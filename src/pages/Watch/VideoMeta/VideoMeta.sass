@@ -1,0 +1,65 @@
+.watch-page
+    .top
+        display: flex
+        flex-direction: row
+        align-items: stretch
+
+        .thumbnail
+
+            img
+                width: 200px
+                height: 250px
+                object-fit: cover
+                border-radius: var(--border-radius)
+
+        .info
+            padding: 20px
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+
+            .snippet
+                display: flex
+                flex-direction: column
+
+                .head
+                    color: var(--faded-color)
+
+                .content
+                    margin-top: 6px
+                    color: var(--light-faded-color)
+
+    .bottom
+        background: var(--section-color)
+        padding: 20px
+        margin-top: 20px
+
+        .tags
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            align-items: center
+
+            .tag
+                margin-top: 10px
+                margin-right: 10px
+                outline: none
+                background: transparent
+                color: var(--light-faded-color)
+                border: 1px solid var(--light-faded-color)
+                border-radius: var(--border-radius)
+                padding: 10px 20px
+                cursor: pointer
+                transition: all 0.3s ease
+
+                &:hover
+                    background: var(--footer-color)
+                    border-color: var(--footer-color)
+                    color: var(--foreground-color)
+                    box-shadow: 0px 0px 15px rgba(0,0,0,0.7)
+
+        .description-text
+            margin: 0
+            margin-top: 20px
+            color: var(--light-faded-color)
+            line-height: 26px

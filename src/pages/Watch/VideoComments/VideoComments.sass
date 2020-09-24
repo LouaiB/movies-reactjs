@@ -1,0 +1,80 @@
+.watch-page
+
+    .comments-count
+        font-size: 0.9em
+
+    .comments
+        display: flex
+        flex-direction: column
+        width: 100%
+        margin-top: 20px
+
+        .comment
+            display: flex
+            flex-direction: row
+            align-items: stretch
+            margin-top: 10px
+
+            .left
+                display: flex
+                flex-direction: column
+                align-items: center
+                padding-right: 10px
+
+                img
+                    height: 35px
+                    width: 35px
+                    object-fit: cover
+                    border-radius: 50%
+
+                .line
+                    flex: 1
+                    margin-top: 10px
+                    width: 2px
+                    background: #88888855
+                    min-height: 10px
+
+                .winner
+                    padding: 5px
+                    background: var(--primary-color)
+                    color: var(--foreground-color)
+                    border-radius: var(--border-radius)
+                    margin-top: 10px
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    justify-content: center
+                    box-shadow: 0 0 10px var(--primary-color)
+                    transition: all 0.3s ease
+
+                    &:hover
+                        background: var(--secondary-color-two)
+                        box-shadow: 0 0 10px var(--secondary-color-two)
+
+                    .icon
+                        font-size: 1em
+
+                    span
+                        font-size: 0.8em
+                        cursor: default
+                        user-select: none
+
+            .right
+                display: flex
+                flex-direction: column
+                padding: 5px
+
+                .username
+                    font-size: 1em
+                    color: var(--primary-color)
+
+                .created-on
+                    font-size: 0.8em
+                    color: var(--faded-color)
+                    margin-top: 5px
+                    margin-bottom: 10px
+
+                .content
+                    white-space: pre-line
+                    line-height: 1.6em
+

@@ -1,0 +1,39 @@
+.toggle-switch
+    position: relative
+    height: 20px
+    width: 45px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    cursor: pointer
+
+    .ball
+        position: absolute
+        left: 0
+        top: 0
+        bottom: 0
+        height: 20px
+        width: 20px
+        border: 0
+        border-radius: 50%
+        background: var(--foreground-color)
+        transform: translateX(0)
+        transition: all 0.3s ease
+
+    .ball-on
+        transform: translateX(24px)
+        background: var(--primary-color)
+        box-shadow: 0 0 5px var(--primary-color)
+
+    .dash
+        height: 15px
+        width: 60%
+        border: 0
+        border-radius: 3em
+        background: var(--faded-color)
+        transition: all 0.3s ease
+
+    .dash-on
+        background: var(--primary-color)
+        filter: brightness(0.7)

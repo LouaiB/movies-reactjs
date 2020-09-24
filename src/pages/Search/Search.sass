@@ -1,0 +1,42 @@
+@import src/styles/_vars.sass
+    
+.search-page
+    padding: 0 20px
+    padding-top: 120px
+    background: var(--background-color)
+    color: var(--foreground-color)
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .filters
+        width: 100%
+        max-width: 900px
+        background: var(--footer-color)
+        padding: 10px 15px
+        box-sizing: border-box
+        display: flex
+        flex-direction: row
+        align-items: stretch
+        justify-content: space-between
+
+        .left
+            display: flex
+            flex-direction: row
+            align-items: stretch
+
+
+        .right
+            display: flex
+            flex-direction: row
+            align-items: stretch
+
+        .filter-btn
+            &:first-child
+                margin-right: 10px
+
+                @media screen and ( max-width: $tablet )
+                    margin-right: 0
+                    
+
+        @import src/styles/filter-btn.sass

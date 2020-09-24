@@ -1,0 +1,140 @@
+.tags-selector
+    width: 80vw
+    background: var(--section-color)
+    color: var(--foreground-color)
+    border-radius: var(--border-radius)
+
+    .head
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        border-bottom: 1px solid #373737
+        padding: 10px
+
+        .close-btn
+            outline: none
+            border: 0
+            border-radius: 50%
+            padding: 10px
+            box-sizing: border-box
+            height: fit-content
+            background: transparent
+            color: var(--foreground-color)
+            font-size: 1.2em
+            height: 40px
+            width: 40px
+            cursor: pointer
+            transition: all 0.2s ease
+
+            &:hover
+                background: var(--faded-color)
+
+
+        .title
+            font-size: 1.4em
+
+
+        .reset-btn
+            outline: none
+            border: 0
+            padding: 10px
+            background: transparent
+            color: var(--primary-color)
+            cursor: pointer
+            border-radius: var(--border-radius)
+            transition: all 0.2s ease
+
+            &:hover
+                background: var(--primary-color)
+                color: var(--foreground-color)
+
+
+    .body
+        padding: 20px
+
+        .broad
+
+            .control
+                display: flex
+                flex-direction: row
+                align-items: center
+                justify-content: space-between
+
+                .name
+                    font-size: 1.5em
+
+            .description
+                color: var(--faded-color)
+                font-size: 0.9em
+                margin-top: 5px
+                filter: brightness(1.2)
+
+        .tags
+            margin-top: 20px
+
+            .name
+                font-size: 1.3em
+                font-weight: bold
+
+            .description
+                color: var(--faded-color)
+                font-size: 0.9em
+                margin-top: 5px
+                filter: brightness(1.2)
+
+            .tags-list
+                display: flex
+                flex-direction: row
+                flex-wrap: wrap
+                align-items: center
+
+                .tag
+                    outline: none
+                    margin-top: 10px
+                    margin-right: 10px
+                    border: 1px solid var(--primary-color)
+                    border-radius: 3em
+                    cursor: pointer
+                    background: transparent
+                    color: var(--foreground-color)
+                    padding: 7px 14px
+                    transition: all 0.2s ease
+
+                .tag-selected
+                    background: var(--primary-color)
+
+
+    .bottom
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        padding: 10px
+
+        .cancel-btn
+            outline: none
+            border: 0
+            padding: 10px
+            background: transparent
+            color: var(--foreground-color)
+            cursor: pointer
+            border-radius: var(--border-radius)
+            transition: all 0.2s ease
+
+            &:hover
+                background: var(--faded-color)
+
+        .apply-btn
+            outline: none
+            border: 0
+            padding: 10px
+            background: transparent
+            color: var(--primary-color)
+            cursor: pointer
+            border-radius: var(--border-radius)
+            transition: all 0.2s ease
+
+            &:hover
+                background: var(--primary-color)
+                color: var(--foreground-color)

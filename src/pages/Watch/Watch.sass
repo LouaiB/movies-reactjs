@@ -1,0 +1,48 @@
+@import src/styles/_vars.sass
+    
+.watch-page
+    overflow-x: hidden
+    padding: 20px
+    padding-top: 120px
+    background: var(--background-color)
+    color: var(--foreground-color)
+    display: grid
+    grid-template-columns: 3fr 1fr
+    grid-template-rows: repeat(4, auto)
+    grid-template-areas: "video recomendations" "summary recomendations" "description recomendations" "comments recomendations"
+
+    @media screen and ( max-width: $pc )
+        grid-template-columns: 1fr
+        grid-template-rows: repeat(5, auto)
+        grid-template-areas: "video" "summary" "description" "recomendations" "comments"
+
+    >div
+        padding: 20px 0
+
+    .video-area
+        grid-area: video
+
+    .summary-area
+        grid-area: summary
+        padding-top: 0
+        display: flex
+        flex-direction: column
+
+    .description-area
+        grid-area: description
+        border-top: 1px solid #88888833
+
+    .recomendations-area
+        grid-area: recomendations
+        display: flex
+        flex-direction: column
+        width: 100%
+        max-width: 100%
+        padding-left: 20px
+
+    .comments-area
+        grid-area: comments
+        border-top: 1px solid #88888833
+
+
+    
