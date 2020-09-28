@@ -11,7 +11,8 @@
     background-repeat: no-repeat
     background-size: cover
     background-blend-mode: darken
-    background-color: #00000033
+    background-color: #00000077
+    filter: saturate(0.4)
     display: flex
     flex-direction: column
     align-items: center
@@ -37,23 +38,17 @@
         right: 0
         height: 100%
         width: 100
-        background: linear-gradient(0deg, var(--background-color), 150px, transparent)
+        background: linear-gradient(0deg, var(--background-color), 10vh, transparent)
 
     .title
         color: var(--foreground-color)
         font-weight: normal
-        font-size: 6em
+        font-size: clamp(2em, 6vw, 6em)
         max-width: 800px
         z-index: 2
 
-        @media screen and ( max-width: $pc )
-            font-size: 4em
-        @media screen and ( max-width: $tablet )
-            font-size: 3em
-        @media screen and ( max-width: $mobile )
-            font-size: 2em
-
     .subtitle
+        font-size: clamp(0.8em, 2vw, 1em)
         color: var(--foreground-color)
-        filter: brightness(0.8)
+        filter: brightness(0.8) saturate(1.7)
         z-index: 2

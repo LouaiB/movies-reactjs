@@ -1,6 +1,6 @@
 import React from 'react';
 import './PreFooter.sass';
-import bgImage from '../../../assets/prefooter.png';
+import bgImage from '../../../assets/bg3.jpg';
 
 export default function PreFooter() {
 

@@ -1,7 +1,4 @@
-import axios from 'axios';
 import * as config from '../config.json';
-import TokenStorageHelper from '../storage/token.storage';
-import moviePlaceholder from '../assets/movie.png';
 import MoviesService from './movies.service';
 import * as sortModes from '../json/sort-modes.json';
 

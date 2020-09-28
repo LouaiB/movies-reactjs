@@ -25,7 +25,7 @@ class UserProvider extends Component {
   }
 
   clearUser = () => {
-      this.setState(this.defaultUser);
+      this.setState((prevState) => ({ user: this.defaultUser }));
   }
 
   render() {

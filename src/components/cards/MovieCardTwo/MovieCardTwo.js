@@ -6,6 +6,7 @@ import './MovieCardTwo.sass';
 import * as config from '../../../config.json';
 
 export default function MovieCardTwo({movie}) {
+
     return (
         <Link className="card-link" to={`/movie/${movie._id}`}>
             <div className="movie-card-two">
@@ -18,7 +19,7 @@ export default function MovieCardTwo({movie}) {
                     <div className="right">
                         <span className="title">{movie.title}</span>
                         <div className="bottom">
-                            <span className="created-on">{movie.createdOn}</span>
+                            <span className="created-on">{new Date(movie.releasedOn).toLocaleDateString()}</span>
                             <span className="views"><FontAwesomeIcon icon={faEye} /> {movie.views}</span>
                         </div>
                     </div>

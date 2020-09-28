@@ -16,11 +16,11 @@ export default function VideoMeta({movie}) {
                 <div className="info">
                     <div className="snippet">
                         <span className="head">Release Date</span>
-                        <span className="content">{movie.releasedOn}</span>
+                        <span className="content">{new Date(movie.releasedOn).toLocaleDateString()}</span>
                     </div>
                     <div className="snippet">
                         <span className="head">Upload Date</span>
-                        <span className="content">{movie.createdOn}</span>
+                        <span className="content">{new Date(movie.createdOn).toLocaleDateString()}</span>
                     </div>
                     <div className="snippet">
                         <span className="head">Alternative Titles</span>

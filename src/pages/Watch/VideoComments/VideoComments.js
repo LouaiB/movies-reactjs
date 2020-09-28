@@ -39,7 +39,7 @@ export default function VideoComments({movie}) {
                         </div>
                         <div className="right">
                             <span className="username">{comment.poster.username}</span>
-                            <span className="created-on">{comment.createdOn.toDateString()}</span>
+                            <span className="created-on">commented on {comment.createdOn.toLocaleDateString()}</span>
                             <span className="content">{comment.content}</span>
                         </div>
                     </div>

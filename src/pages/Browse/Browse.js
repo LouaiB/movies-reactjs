@@ -4,6 +4,7 @@ import PageCards from './PageCards/PageCards';
 import { Link } from 'react-router-dom';
 import MoviesService from '../../services/movies.service';
 import TagCardOne from '../../components/cards/TagCardOne/TagCardOne';
+import ErrorBoundary from '../../utils/ErrorBoundary/errorBoundary';
 
 export default function Browse() {
 
@@ -36,7 +37,9 @@ export default function Browse() {
                 </div>
                 <div className="tags">
                     {tags && tags.map(t => (
-                        <TagCardOne key={t._id} tag={t} />
+                        <ErrorBoundary key={t._id}>
+                            <TagCardOne tag={t} />
+                        </ErrorBoundary>
                     ))}
                 </div>
             </div>

@@ -1,4 +1,5 @@
 .full-paginator
+    position: relative
 
     .controls
         display: flex
@@ -6,6 +7,11 @@
         flex-wrap: nowrap
         align-items: center
         justify-content: center
+
+        .shift-left
+            animation: shift-left linear 0.2s infinite alternate-reverse
+        .shift-right
+            animation: shift-right linear 0.2s infinite alternate-reverse
 
         @import src/styles/btn2
 
@@ -20,3 +26,20 @@
         >*
             margin-top: 10px
             margin-right: 10px
+
+    .empty
+        text-align: center
+        color: var(--foreground-color)
+        padding: 100px 0
+
+@keyframes shift-left
+    0%
+        transform: translateX(0px)
+    100%
+        transform: translateX(-5px)
+
+@keyframes shift-right
+    0%
+        transform: translateX(0px)
+    100%
+        transform: translateX(5px)

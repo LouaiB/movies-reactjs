@@ -6,6 +6,8 @@ import { ModalsContext } from '../../context/modals.context';
 import { FiltersContext } from '../../context/filters.context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag, faSort, faBan, faEraser } from '@fortawesome/free-solid-svg-icons';
+import ErrorBoundary from '../../utils/ErrorBoundary/errorBoundary';
+import loaderGif from '../../assets/loader.gif';
 
 export default function Search() {
 
@@ -15,6 +17,8 @@ export default function Search() {
     const [movies, setMovies] = useState();
     const [pages, setPages] = useState();
     const [pageNum, setPageNum] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+    const [timeoutRef, setTimeoutRef] = useState(null);
     const pageSize = 24;
 
     useEffect(() => {
@@ -24,14 +28,22 @@ export default function Search() {
     }, [filters]);
 
     const getPage = (pageNum, pageSize) => {
-        MoviesService.search(filters, pageNum, pageSize).then(response => {
-            setMovies(response.data.movies);
-            setPages(response.data.pages);
-            console.log(response);
-        }).catch(e => {
-            alert(e.error.message);
-            console.error(e);
-        });
+        setIsLoading(true);
+        if(timeoutRef) clearTimeout(timeoutRef);
+        const tmr = setTimeout(() => {
+
+            MoviesService.search(filters, pageNum, pageSize).then(response => {
+                setMovies(response.data.movies);
+                setPages(response.data.pages);
+                console.log(response);
+            }).catch(e => {
+                alert(e.error.message);
+                console.error(e);
+            }).finally(() => {
+                setIsLoading(false);
+            });
+        }, 3000)
+        setTimeoutRef(tmr);
     }
 
     const openIncludedTagsModal = () => {
@@ -55,42 +67,44 @@ export default function Search() {
 
     return (
         <div className="search-page">
-            <div className="filters">
-                <div className="left">
-                    <button 
-                        className="filter-btn"
-                        onClick={openIncludedTagsModal}
-                    >
-                        <FontAwesomeIcon icon={faTag} className="filter-icon" />
-                        <span className="btn-text">Tags</span>
-                        {filters.includedTags && filters.includedTags.length > 0 && <span className="filter-count">{filters.includedTags.length}</span>}
-                    </button>
-                    <button
-                        className="filter-btn" 
-                        onClick={openExcludedTagsModal}
+            <ErrorBoundary>
+                <div className="filters">
+                    <div className="left">
+                        <button 
+                            className="filter-btn"
+                            onClick={openIncludedTagsModal}
                         >
-                            <FontAwesomeIcon icon={faBan} className="filter-icon" />
-                            <span className="btn-text">Blacklist</span>
-                            {filters.excludedTags && filters.excludedTags.length > 0 && <span className="filter-count">{filters.excludedTags.length}</span>}
+                            <FontAwesomeIcon icon={faTag} className="filter-icon" />
+                            <span className="btn-text">Tags</span>
+                            {filters.includedTags && filters.includedTags.length > 0 && <span className="filter-count">{filters.includedTags.length}</span>}
                         </button>
+                        <button
+                            className="filter-btn" 
+                            onClick={openExcludedTagsModal}
+                            >
+                                <FontAwesomeIcon icon={faBan} className="filter-icon" />
+                                <span className="btn-text">Blacklist</span>
+                                {filters.excludedTags && filters.excludedTags.length > 0 && <span className="filter-count">{filters.excludedTags.length}</span>}
+                            </button>
+                    </div>
+                    <div className="right">
+                        <button 
+                            className="filter-btn" 
+                            onClick={resetAll}
+                        >
+                            <FontAwesomeIcon icon={faEraser} className="filter-icon" />
+                            <span className="btn-text">Reset All</span>
+                        </button>
+                        <button 
+                            className="filter-btn" 
+                            onClick={openSearchSortModal}
+                        >
+                            <FontAwesomeIcon icon={faSort} className="filter-icon" />
+                            <span className="btn-text">Sort</span>
+                        </button>
+                    </div>
                 </div>
-                <div className="right">
-                    <button 
-                        className="filter-btn" 
-                        onClick={resetAll}
-                    >
-                        <FontAwesomeIcon icon={faEraser} className="filter-icon" />
-                        <span className="btn-text">Reset All</span>
-                    </button>
-                    <button 
-                        className="filter-btn" 
-                        onClick={openSearchSortModal}
-                    >
-                        <FontAwesomeIcon icon={faSort} className="filter-icon" />
-                        <span className="btn-text">Sort</span>
-                    </button>
-                </div>
-            </div>
+            </ErrorBoundary>
             <FullPagination 
                 className="paginator"
                 getPage={getPage}
@@ -99,7 +113,13 @@ export default function Search() {
                 pageNum={pageNum}
                 setPageNum={setPageNum}
                 pageSize={pageSize}
-                movieCard={3}  />
+                movieCard={3}
+                isLoading={isLoading}  />
+            {isLoading && movies == undefined &&
+                <div className="loader">
+                    <img src={loaderGif} />
+                </div>
+            }
         </div>
     )
 }

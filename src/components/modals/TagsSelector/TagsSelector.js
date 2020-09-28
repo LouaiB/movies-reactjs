@@ -79,8 +79,8 @@ export default function TagsSelector() {
                     <div className="name">Include Tags</div>
                     <div className="description">
                         { isStrictInclusion 
-                            ? 'Find videos that has all selected tags below:' 
-                            : 'Find videos that has any of the selected tags below:'
+                            ? 'Find videos that have all selected tags below:' 
+                            : 'Find videos that have any of the selected tags below:'
                         }
                     </div>
                     <div className="tags-list">

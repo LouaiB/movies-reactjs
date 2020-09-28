@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.sass';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Login from '../Login/Login';
@@ -10,7 +10,7 @@ import Homepage from '../Homepage/Homepage';
 import NotFound from '../NotFound/NotFound';
 // import Test from './Test';
 import '../../utils/axios.interceptor';
-import { UserProvider } from '../../context/user.context';
+import { UserContext, UserProvider } from '../../context/user.context';
 import { MiscProvider } from '../../context/misc.context';
 import { ModalsProvider } from '../../context/modals.context';
 import { FiltersProvider } from '../../context/filters.context';

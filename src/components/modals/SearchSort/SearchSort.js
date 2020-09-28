@@ -23,6 +23,7 @@ export default function SearchSort() {
         <div className="search-sort">
             {sortModes && sortModes.default.map(sortMode => (
                 <div 
+                    key={sortMode.code}
                     className={`mode ${filters.sortMode.code == sortMode.code ? 'chosen' : ''}`} 
                     onClick={() => onModeSelect(sortMode)}
                 >

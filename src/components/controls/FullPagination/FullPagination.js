@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './FullPagination.sass';
 import MovieCardOne from '../../cards/MovieCardOne/MovieCardOne';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import MovieCardTwo from '../../cards/MovieCardTwo/MovieCardTwo';
 import MovieCardThree from '../../cards/MovieCardThree/MovieCardThree';
+import ErrorBoundary from '../../../utils/ErrorBoundary/errorBoundary';
 
-export default function FullPagination({getPage, movies, pages, pageNum, setPageNum, pageSize, movieCard = 1}) {
+export default function FullPagination({getPage, movies, pages, pageNum, setPageNum, pageSize, movieCard = 1, isLoading = false}) {
 
     const [pageBtns, setPageBtns] = useState([]);
 
@@ -51,51 +52,59 @@ export default function FullPagination({getPage, movies, pages, pageNum, setPage
         scrollToTop();
     }
 
-    const Controls = () => (
+    const Controls = ({isLoading}) => (
         <div className="controls">
-                <button 
-                    className="btn btn-sm"
-                    disabled={pageNum <= 0}
-                    onClick={prevPage}
-                    >
-                        <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
+            <button 
+                className={`btn btn-sm ${isLoading ? 'shift-left' : ''}`}
+                disabled={pageNum <= 0}
+                onClick={prevPage}
+                >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
 
-                {pageBtns && pageBtns.map(btn => {
-                    if(btn != -1) return(
-                        <button 
-                            className={`btn btn-md ${pageNum == btn-1 ? 'active' : ''}`}
-                            onClick={() => choosePage(btn-1)}
-                            >
-                                {btn}
-                        </button>
-                    )
-                    else return (
-                        <span className="elip">...</span>
-                    )
-                })}
-                
+            {pageBtns && pageBtns.map((btn, index) => {
+                if(btn != -1) return(
+                    <button 
+                        key={index}
+                        className={`btn btn-md ${pageNum == btn-1 ? 'active' : ''}`}
+                        onClick={() => choosePage(btn-1)}
+                        >
+                            {btn}
+                    </button>
+                )
+                else return (
+                    <span key={index} className="elip">...</span>
+                )
+            })}
+            
 
-                <button 
-                    className="btn btn-sm"
-                    disabled={pageNum >= pages-1}
-                    onClick={nextPage}
-                    >
-                        <FontAwesomeIcon icon={faChevronRight} />
-                </button>
-                
-            </div>
+            <button 
+                className={`btn btn-sm ${isLoading ? 'shift-right' : ''}`}
+                disabled={pageNum >= pages-1}
+                onClick={nextPage}
+                >
+                    <FontAwesomeIcon icon={faChevronRight} />
+            </button>
+            
+        </div>
     )
 
     return (
         <div className="full-paginator">
-            <Controls />
-            <div className="items">
-                { movies && movieCard == 1 && movies.map(m => (<MovieCardOne key={m._id} movie={m} />)) }
-                { movies && movieCard == 2 && movies.map(m => (<MovieCardTwo key={m._id} movie={m} />)) }
-                { movies && movieCard == 3 && movies.map(m => (<MovieCardThree key={m._id} movie={m} />)) }
-            </div>
-            <Controls />
+            {movies && movies.length > 0 && (<>
+                <Controls isLoading={isLoading} />
+                <div className="items">
+                    { movies && movieCard == 1 && movies.map(m => (<ErrorBoundary key={m._id}><MovieCardOne movie={m} /></ErrorBoundary>)) }
+                    { movies && movieCard == 2 && movies.map(m => (<ErrorBoundary key={m._id}><MovieCardTwo movie={m} /></ErrorBoundary>)) }
+                    { movies && movieCard == 3 && movies.map(m => (<ErrorBoundary key={m._id}><MovieCardThree movie={m} /></ErrorBoundary>)) }
+                </div>
+                <Controls isLoading={isLoading} />
+            </>)}
+            {movies && movies.length == 0 && <>
+                <div className="empty">
+                    <h1>No Movies Found</h1>
+                </div>
+            </>}
         </div>
     )
 }

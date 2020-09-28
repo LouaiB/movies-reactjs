@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.sass';
-import heroBG from '../../../assets/hero.jpg';
+import heroBG from '../../../assets/hero3.jpg';
 
 export default function Hero() {
 

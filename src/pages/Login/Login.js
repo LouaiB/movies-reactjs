@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import './Login.sass';
 import bgImage from '../../assets/bg.jpg';
-import logo from '../../assets/footer-logo.png';
+import logo from '../../assets/logo.png';
 
 export default function Login() {
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import moviePlaceholder from '../../../assets/movie.png';
 import MovieCardOne from '../../../components/cards/MovieCardOne/MovieCardOne';
 import SimplePagination from '../../../components/controls/SimplePagination/SimplePagination';
 import './TrendingSnip.sass';

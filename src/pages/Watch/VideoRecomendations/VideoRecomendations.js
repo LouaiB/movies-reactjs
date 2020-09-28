@@ -11,7 +11,7 @@ export default function VideoRecomendations({movie}) {
         <>
             <span className="area-title">Other Movies</span>
             {movie.recomendations && movie.recomendations.map(rec => (
-                <div className="rec" onClick={() => history.push(`/movie/${rec._id}`)}>
+                <div key={rec._id} className="rec" onClick={() => history.push(`/movie/${rec._id}`)}>
                     <div className="thumbnail">
                         <img src={`${config.apiUrl}/${rec.thumbnail}`} />
                     </div>

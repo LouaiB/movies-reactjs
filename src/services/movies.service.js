@@ -1,8 +1,8 @@
 import axios from 'axios';
 import * as config from '../config.json';
 import TokenStorageHelper from '../storage/token.storage';
-import moviePlaceholder from '../assets/pirates.jpg';
-import userPlaceholder from '../assets/tag.jpg';
+import moviePlaceholder from '../assets/avatar.png';
+import userPlaceholder from '../assets/avatar.png';
 import * as sortModes from '../json/sort-modes.json';
 
 const MoviesService = {
@@ -261,8 +261,6 @@ const MoviesService = {
         }
     },
 
-    ///////////////////////// ADD ////////////////////////////////
-
     addTag: (name, description, thumbnail) => {
         try {
             let formData = new FormData();
@@ -292,6 +290,33 @@ const MoviesService = {
             console.error(e);
         }
     },
+
+
+    addLike: (movieId) => {
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        return axios.post(`${config.apiUrl}/api/movies/addLike`, { movieId }, { headers });
+    },
+    addDislike: (movieId) => {
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        return axios.post(`${config.apiUrl}/api/movies/addDislike`, { movieId }, { headers });
+    },
+    removeLike: (movieId) => {
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        return axios.post(`${config.apiUrl}/api/movies/removeLike`, { movieId }, { headers });
+    },
+    removeDislike: (movieId) => {
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        return axios.post(`${config.apiUrl}/api/movies/removeDislike`, { movieId }, { headers });
+    },
+
 }
 
 export default MoviesService;
